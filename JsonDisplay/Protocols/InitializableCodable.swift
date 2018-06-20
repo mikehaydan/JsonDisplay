@@ -36,5 +36,4 @@ extension InitializableCodable {
             throw NSError.parseError
         }
     }
-    
 }

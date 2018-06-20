@@ -25,6 +25,7 @@
 		E8A0171B20DAADD200A3BA08 /* CacheGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A0171220DAADD200A3BA08 /* CacheGateway.swift */; };
 		E8A0172020DAAE1200A3BA08 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A0171F20DAAE1200A3BA08 /* ImageModel.swift */; };
 		E8A0172320DAAE4500A3BA08 /* InitializableCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A0172220DAAE4500A3BA08 /* InitializableCodable.swift */; };
+		E8A0172820DAB1F700A3BA08 /* ImagesDataGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A0172720DAB1F700A3BA08 /* ImagesDataGateway.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		E8A0171220DAADD200A3BA08 /* CacheGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheGateway.swift; sourceTree = "<group>"; };
 		E8A0171F20DAAE1200A3BA08 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		E8A0172220DAAE4500A3BA08 /* InitializableCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitializableCodable.swift; sourceTree = "<group>"; };
+		E8A0172720DAB1F700A3BA08 /* ImagesDataGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesDataGateway.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			children = (
 				E8A0171120DAADD200A3BA08 /* DownloaderGateway.swift */,
 				E8A0171220DAADD200A3BA08 /* CacheGateway.swift */,
+				E8A0172720DAB1F700A3BA08 /* ImagesDataGateway.swift */,
 			);
 			path = Gateways;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				E8228F6320DAABF500ED6D7F /* ViewController.swift in Sources */,
 				E8A0172020DAAE1200A3BA08 /* ImageModel.swift in Sources */,
 				E8A0171720DAADD200A3BA08 /* HTTPError.swift in Sources */,
+				E8A0172820DAB1F700A3BA08 /* ImagesDataGateway.swift in Sources */,
 				E8A0170720DAADAB00A3BA08 /* Dictionary + Extensions.swift in Sources */,
 				E8A0171B20DAADD200A3BA08 /* CacheGateway.swift in Sources */,
 				E8A0171A20DAADD200A3BA08 /* DownloaderGateway.swift in Sources */,
@@ -406,6 +410,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "$(SRCROOT)/JsonDisplay/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -423,6 +428,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "$(SRCROOT)/JsonDisplay/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

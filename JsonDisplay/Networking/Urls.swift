@@ -9,8 +9,8 @@
 import Foundation
 
 enum Urls {
-    private static let baseUrlString: String = "https://api.tumblr.com"
+    private static let baseUrlString: String = "https://dl.dropboxusercontent.com"
     
     static let baseUrl: URL = URL(string: baseUrlString)!
-    static let searchImage: String = "/v2/tagged"
+    static let images: String = "/s/2iodh4vg0eortkl/facts.json"
 }
