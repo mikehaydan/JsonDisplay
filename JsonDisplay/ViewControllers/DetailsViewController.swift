@@ -13,7 +13,6 @@ final class DetailsViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet private weak var detailImageView: DownloaderImageView!
-    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var subtitleLabel: UILabel!
     @IBOutlet private weak var activityIndicatorView: UIActivityIndicatorView!
     
@@ -31,11 +30,11 @@ final class DetailsViewController: UIViewController {
     // MARK: - Private
 
     func prepareUI() {
-        titleLabel.text = model.title
+        title = model.title
         subtitleLabel.text = model.description
         
         activityIndicatorView.startAnimating()
-        detailImageView.dwonloadImagefrom(url: model.imageUrl, downloader: cacheGateway, placeholder: #imageLiteral(resourceName: "placeholder"), complation: { [weak self] (result) in
+        detailImageView.downloadImagefrom(url: model.imageUrl, downloader: cacheGateway, placeholder: #imageLiteral(resourceName: "placeholder"), complation: { [weak self] (result) in
             DispatchQueue.main.async { [weak self] in
                 guard let strongSelf = self else {
                     return

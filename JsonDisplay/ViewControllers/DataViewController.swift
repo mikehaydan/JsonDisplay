@@ -31,10 +31,10 @@ final class DataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        checkOrienation()
         registerCells()
         prepareAPI()
         getDataSource()
+        checkOrienation()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -51,23 +51,21 @@ final class DataViewController: UIViewController {
             let model = dataSource[index]
             controller.configureWith(model: model, cacheGateway: cacheGateway)
         }
-        
-        
     }
-    
-    // MARK: - IBActions
-    
-    
     
     // MARK: - Private
     
     private func checkOrienation() {
+        let scrollDirection: UICollectionViewScrollDirection
         if UIDevice.current.orientation.isLandscape {
-            flowLayout.scrollDirection = .horizontal
+            scrollDirection = .horizontal
         } else {
-            flowLayout.scrollDirection = .vertical
+            scrollDirection = .vertical
         }
-        collectionView.reloadData()
+        if flowLayout.scrollDirection != scrollDirection {
+            flowLayout.scrollDirection = scrollDirection
+            flowLayout.invalidateLayout()
+        }
     }
     
     private func registerCells() {
@@ -161,7 +159,6 @@ extension DataViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let model = dataSource[indexPath.row]
-        
         let cell = cell as! ImageCollectionViewCell
         
         cell.configureWith(model: model, placeholder: #imageLiteral(resourceName: "placeholder"), downloader: cacheGateway, delegate: self)

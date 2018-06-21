@@ -12,20 +12,26 @@ final class DownloaderImageView: UIImageView {
 
     // MARK: - Properties
     
-    private var dwonloadTask: URLSessionDataTask?
+    private var downloadTask: URLSessionDataTask?
     private weak var downloader: CacheGateway!
+    
+    // MARK: - LifeCycle
+
+    deinit {
+        downloadTask?.cancel()
+    }
     
     // MARK: - Public
     
     func cancelDownload() {
-        dwonloadTask?.cancel()
+        downloadTask?.cancel()
     }
     
-    func dwonloadImagefrom(url: String, downloader: CacheGateway, placeholder: UIImage? = nil, complation: ((Result<UIImage>) -> ())? = nil) {
+    func downloadImagefrom(url: String, downloader: CacheGateway, placeholder: UIImage? = nil, complation: ((Result<UIImage>) -> ())? = nil) {
         image = placeholder
         self.downloader = downloader
         downloader.downloadImageBy(urlString: url, dataTaskHandler: { [weak self] (dataTask) in
-            self?.dwonloadTask = dataTask
+            self?.downloadTask = dataTask
         }, completion: { [weak self] (result) in
             DispatchQueue.main.async { [weak self] in
                 guard let strongSelf = self else {
@@ -35,7 +41,10 @@ final class DownloaderImageView: UIImageView {
                 case let .success(response):
                     strongSelf.image = response
                 case let .failure(error):
-                    strongSelf.image = placeholder
+                    let nsError = error as NSError
+                    if nsError.code != URLError.cancelled.rawValue {
+                        strongSelf.image = placeholder
+                    } 
                     print(error.localizedDescription)
                 }
                 complation?(result)

@@ -37,15 +37,19 @@ final class ImageCollectionViewCell: UICollectionViewCell {
         if let image = model.image {
             imageView.image = image
         } else {
-            activityIndicatorView.startAnimating()
-            getImage(url: model.imageUrl, downloader: downloader, placeholder: placeholder, delegate: delegate)
+            if model.imageUrl.isEmpty {
+                imageView.image = #imageLiteral(resourceName: "placeholder")
+            } else {
+                activityIndicatorView.startAnimating()
+                getImage(url: model.imageUrl, downloader: downloader, placeholder: placeholder, delegate: delegate)
+            }
         }
     }
     
     // MARK: - Private
     
     private func getImage(url: String, downloader: CacheGateway, placeholder: UIImage?, delegate: ImageCollectionViewCellDelegate?) {
-        imageView.dwonloadImagefrom(url: url, downloader: downloader, placeholder: placeholder) { [weak self] (result) in
+        imageView.downloadImagefrom(url: url, downloader: downloader, placeholder: placeholder) { [weak self] (result) in
             guard let strongSelf = self else {
                 return
             }
