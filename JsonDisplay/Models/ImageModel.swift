@@ -6,7 +6,7 @@
 //  Copyright © 2018 Misha Apps. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct FullImageApiModel: InitializableCodable {
     
@@ -52,7 +52,7 @@ struct ImageApiModel: InitializableCodable {
     let imageUrl: String?
     
     var imageModel: ImageModel {
-        return ImageModel(title: title ?? "", description: description ?? "", imageUrl: imageUrl ?? "")
+        return ImageModel(title: title ?? "", description: description ?? "", imageUrl: imageUrl ?? "", image: nil)
     }
 }
 
@@ -60,4 +60,5 @@ struct ImageModel {
     let title: String
     let description: String
     let imageUrl: String
+    var image: UIImage?
 }

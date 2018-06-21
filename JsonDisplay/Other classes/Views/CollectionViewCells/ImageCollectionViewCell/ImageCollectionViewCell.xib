@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ImageCollectionViewCell" customModule="JsonDisplay" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="1mW-ao-lfy" customClass="DownloaderImageView" customModule="JsonDisplay" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                    </imageView>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gkb-kW-HCJ">
+                        <rect key="frame" x="132" y="132" width="37" height="37"/>
+                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </activityIndicatorView>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="1mW-ao-lfy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Dkb-3t-EBI"/>
+                <constraint firstItem="gkb-kW-HCJ" firstAttribute="centerX" secondItem="1mW-ao-lfy" secondAttribute="centerX" id="GeZ-ZM-lky"/>
+                <constraint firstItem="1mW-ao-lfy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Y2d-zq-7kH"/>
+                <constraint firstAttribute="bottom" secondItem="1mW-ao-lfy" secondAttribute="bottom" id="eaG-8A-EmV"/>
+                <constraint firstItem="gkb-kW-HCJ" firstAttribute="centerY" secondItem="1mW-ao-lfy" secondAttribute="centerY" id="lXy-KO-gSD"/>
+                <constraint firstAttribute="trailing" secondItem="1mW-ao-lfy" secondAttribute="trailing" id="ljS-Sm-eDr"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="activityIndicatorView" destination="gkb-kW-HCJ" id="85V-2q-yF1"/>
+                <outlet property="imageView" destination="1mW-ao-lfy" id="2Aw-rQ-cVA"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="placeholder" width="128" height="128"/>
+    </resources>
+</document>
